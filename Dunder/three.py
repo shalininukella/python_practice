@@ -15,7 +15,8 @@ class MyList:
         del self.items[index]
 
 lst = MyList([1, 2, 3]) 
-print(lst.items)      #[1, 2, 3]
+print(lst.items)      # [1, 2, 3]
+print(lst)            # <__main__.MyList object at 0x10259aa50>
 print(len(lst))       # 3
 print(lst[1])         # 2
 lst[1] = 20
