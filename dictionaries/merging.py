@@ -20,6 +20,6 @@ print(dict1)
 # "b" was updated from 2 → 3
 # "c" was added
 
-#or 
+#or python 3.7+
 merged = {**dict1, **dict2}
 print(merged)

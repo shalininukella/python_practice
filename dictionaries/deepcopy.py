@@ -1,5 +1,4 @@
 import copy
-import dis
 
 lst1 = [1,2,3]
 lst2 = copy.deepcopy(lst1)
@@ -7,6 +6,7 @@ lst2 = copy.deepcopy(lst1)
 dict1 = {"a":1, "b":2, "c": {"d":4}}
 dict2 = copy.deepcopy(dict1)
 dict2.update({"c" : {"d":5}})
+
 print(dict2)
 print(dict1)
 
