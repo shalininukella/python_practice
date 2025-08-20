@@ -14,5 +14,6 @@ class Counter:
             raise StopIteration
         
 counter = Counter(1, 5) #it's like an iterator
-for i in counter:
+print(next(counter)) #1
+for i in counter: #2,3,4
     print(i)

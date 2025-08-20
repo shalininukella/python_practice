@@ -1,4 +1,4 @@
-# nested = [1, [2, [3, 4]], 5]
+nested = [1, [2, [3, 4]], 5]
 
 def flatten(nested):
     res = []
