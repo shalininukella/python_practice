@@ -1,20 +1,18 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        num_set = set(nums)
-        longest = 0
+        seen = set(nums)
+        maxLen = 0
 
-        for num in num_set:
-            # Only start counting if num is the start of a sequence
-            if num - 1 not in num_set:
-                current = num
-                length = 1
-                
-                while current + 1 in num_set:
-                    current += 1
-                    length += 1
-                    
-                longest = max(longest, length)
-        
-        return longest
-            
-# https://leetcode.com/problems/longest-consecutive-sequence/submissions/1739683567
+        for num in seen:  # ✅ avoids duplicates
+            if num - 1 not in seen:  # start of a new sequence
+                curr = num
+                cnt = 1
+
+                while curr + 1 in seen:
+                    curr += 1
+                    cnt += 1
+
+                maxLen = max(maxLen, cnt)
+
+        return maxLen
+# https://leetcode.com/problems/longest-consecutive-sequence/

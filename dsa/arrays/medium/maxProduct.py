@@ -25,20 +25,21 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         pro = 1
-        i=j=0
-        maxi = float('-inf')
-        n = len(nums)
-        for i in range(n):
-            pro *= nums[i]
-            maxi = max(maxi, pro)
+        maxi = nums[0]
+
+        for i in nums:
             if pro == 0:
                 pro = 1
-
+            pro *= i
+            maxi = max(maxi, pro)
+        
         pro = 1
-        for i in range(n-1, -1, -1):
+        for i in range(len(nums)-1, -1, -1):
+            if pro == 0:
+                pro = 1
             pro *= nums[i]
             maxi = max(maxi, pro)
-            if pro ==0:
-                pro = 1
+
         return maxi
+
 # https://leetcode.com/problems/maximum-product-subarray/submissions/1736134433/
