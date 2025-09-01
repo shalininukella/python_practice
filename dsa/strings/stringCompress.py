@@ -1,6 +1,3 @@
-from bz2 import compress
-
-
 def stringCompress(strs):
     compressed = ''
     cnt = 1
