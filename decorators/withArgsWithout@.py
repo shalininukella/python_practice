@@ -6,15 +6,17 @@
 
 def decorator(func):
     def wrapper(*args, **kwargs):
-        print(f"Calling the function: {func.__name__} with args= {args} and kwargs={kwargs}")
+        print(
+            f"Calling the function: '{func.__name__}' with args = {args} and kwargs={kwargs}"
+        )
         func(*args, **kwargs)
+
     return wrapper
 
 
-def add(a,b):
-    print(f"sum is {a+b}") 
+def add(a, b):
+    print(f"sum is {a+b}")
+
 
 decorated_func = decorator(add)
-decorated_func(2,3)
-
-
+decorated_func(2, 3)
