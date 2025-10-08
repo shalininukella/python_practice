@@ -1,4 +1,5 @@
 def add_greet(fun):
+    print("hello")
     def wrapper():
         print("hi")
         fun()
