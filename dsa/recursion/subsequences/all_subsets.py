@@ -27,33 +27,36 @@
 
 
 ## 2. RECURSION
-# tc - O(n * 2^n) - every element of the array have 2 possibilities - take or not take
+# tc - O(n * 2^n) - every element of the array have 2 possibilities - take or not take, 
+# and n time for - you are copying a subset of size n form seq to res whenever the i == len(nums)
+
 # sc - O(n * 2^n) - refer my dsa docs
-class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = []
-        seq = []
 
-        def subSeq(i):
-            #base
-            if i >= len(nums):
-                res.append(seq[:])
-                return
+# class Solution:
+#     def subsets(self, nums: List[int]) -> List[List[int]]:
+#         res = []
+#         seq = []
 
-            #take
-            seq.append(nums[i])
+#         def subSeq(i):
+#             #base
+#             if i >= len(nums):
+#                 res.append(seq[:])
+#                 return
 
-            #explore all the possibilities(take and not take) of the elements which come after the current element with this current element
-            subSeq(i+1)
+#             #take
+#             seq.append(nums[i])
 
-            # now not take the current elem, since we will be back after exploring all the possibilities of the take
-            seq.pop()
+#             #explore all the possibilities(take and not take) of the elements which come after the current element with this current element
+#             subSeq(i+1)
 
-            #now explore all the possibilities (take and not take) by not taking the current element
-            subSeq(i+1)
+#             # now not take the current elem, since we will be back after exploring all the possibilities of the take
+#             seq.pop()
+
+#             #now explore all the possibilities (take and not take) by not taking the current element
+#             subSeq(i+1)
         
-        subSeq(0)
-        return res
+#         subSeq(0)
+#         return res
 
 ##3. Powerset
 # tc - O(n * 2^n) 
@@ -75,3 +78,22 @@ class Solution:
         return res
 
 # https://leetcode.com/problems/subsets/
+
+
+## backtracking with for loop 
+# class Solution:
+#     def subsets(self, nums: List[int]) -> List[List[int]]:
+#         res = []
+#         seq = []
+
+#         def helper(start):
+#             # Every call represents one subset
+#             res.append(seq[:])
+
+#             for i in range(start, len(nums)):
+#                 seq.append(nums[i])
+#                 helper(i + 1)
+#                 seq.pop()
+
+#         helper(0)
+#         return res
