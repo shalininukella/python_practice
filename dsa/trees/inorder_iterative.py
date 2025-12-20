@@ -4,62 +4,62 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-# # recursive
 # class Solution:
-#     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-#         res = []
-#         def preorder(node):
-#             #base case
-#             if node is None:
-#                 return
+#     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # res = []
+        # def helper(root):
 
-#             res.append(node.val)
-#             preorder(node.left)
-#             preorder(node.right)
+        #     #base case 
+        #     if root is None:
+        #         return
 
-#         preorder(root)
-#         return res
+        #     helper(root.left)
+        #     res.append(root.val)
+        #     helper(root.right)
+        
+        # helper(root)
+        # return res
 
-# #iterative - 1
+#iterative
+
 # class Solution:
-#     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+#     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        
 #         res = []
 #         stack = collections.deque()
 #         curr = root
 
 #         while stack or curr:
-
+#             # go left as far as possible
 #             while curr:
 #                 stack.append(curr)
-#                 res.append(curr.val)
 #                 curr = curr.left
             
 #             curr = stack.pop()
+#             res.append(curr.val)
 #             curr = curr.right
 
 #         return res
 
+# https://leetcode.com/problems/binary-tree-inorder-traversal/submissions/1859635885/
 
 #iterative - 2
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
 
         res = []
         stack = collections.deque()
         curr = root
 
-        while curr or stack:
+        while stack or curr:
 
             if curr:
                 stack.append(curr)
-                res.append(curr.val)
                 curr = curr.left
             
             else:
                 curr = stack.pop()
+                res.append(curr.val)
                 curr = curr.right
 
         return res
-    
-# https://leetcode.com/problems/binary-tree-preorder-traversal/submissions/1859727304/
